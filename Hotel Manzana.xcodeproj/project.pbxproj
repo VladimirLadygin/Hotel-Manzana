@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E79C4051281FC4FA00451FA9 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C4050281FC4FA00451FA9 /* Registration.swift */; };
+		E79C4053281FC65E00451FA9 /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C4052281FC65E00451FA9 /* RoomType.swift */; };
+		E79C4058281FD7B700451FA9 /* AddRegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C4057281FD7B700451FA9 /* AddRegistrationTableViewController.swift */; };
 		E7DB84C4281E90F600513F8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB84C3281E90F600513F8C /* AppDelegate.swift */; };
 		E7DB84C6281E90F600513F8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB84C5281E90F600513F8C /* SceneDelegate.swift */; };
-		E7DB84C8281E90F600513F8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB84C7281E90F600513F8C /* ViewController.swift */; };
 		E7DB84CB281E90F600513F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7DB84C9281E90F600513F8C /* Main.storyboard */; };
 		E7DB84CD281E90FA00513F8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7DB84CC281E90FA00513F8C /* Assets.xcassets */; };
 		E7DB84D0281E90FA00513F8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7DB84CE281E90FA00513F8C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E79C4050281FC4FA00451FA9 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		E79C4052281FC65E00451FA9 /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
+		E79C4057281FD7B700451FA9 /* AddRegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegistrationTableViewController.swift; sourceTree = "<group>"; };
 		E7DB84C0281E90F600513F8C /* Hotel Manzana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hotel Manzana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DB84C3281E90F600513F8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7DB84C5281E90F600513F8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7DB84C7281E90F600513F8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E7DB84CA281E90F600513F8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7DB84CC281E90FA00513F8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7DB84CF281E90FA00513F8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E79C4054281FD4FB00451FA9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E79C4057281FD7B700451FA9 /* AddRegistrationTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E79C4055281FD55600451FA9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E7DB84C3281E90F600513F8C /* AppDelegate.swift */,
+				E7DB84CC281E90FA00513F8C /* Assets.xcassets */,
+				E7DB84D1281E90FA00513F8C /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E79C4056281FD57C00451FA9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E7DB84CE281E90FA00513F8C /* LaunchScreen.storyboard */,
+				E7DB84C9281E90F600513F8C /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		E7DB84B7281E90F600513F8C = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +87,22 @@
 		E7DB84C2281E90F600513F8C /* Hotel Manzana */ = {
 			isa = PBXGroup;
 			children = (
-				E7DB84C3281E90F600513F8C /* AppDelegate.swift */,
+				E79C4055281FD55600451FA9 /* App */,
+				E79C4056281FD57C00451FA9 /* Storyboards */,
+				E7DB84D8281E921300513F8C /* Model */,
 				E7DB84C5281E90F600513F8C /* SceneDelegate.swift */,
-				E7DB84C7281E90F600513F8C /* ViewController.swift */,
-				E7DB84C9281E90F600513F8C /* Main.storyboard */,
-				E7DB84CC281E90FA00513F8C /* Assets.xcassets */,
-				E7DB84CE281E90FA00513F8C /* LaunchScreen.storyboard */,
-				E7DB84D1281E90FA00513F8C /* Info.plist */,
+				E79C4054281FD4FB00451FA9 /* View Controllers */,
 			);
 			path = "Hotel Manzana";
+			sourceTree = "<group>";
+		};
+		E7DB84D8281E921300513F8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E79C4050281FC4FA00451FA9 /* Registration.swift */,
+				E79C4052281FC65E00451FA9 /* RoomType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7DB84C8281E90F600513F8C /* ViewController.swift in Sources */,
+				E79C4053281FC65E00451FA9 /* RoomType.swift in Sources */,
+				E79C4058281FD7B700451FA9 /* AddRegistrationTableViewController.swift in Sources */,
 				E7DB84C4281E90F600513F8C /* AppDelegate.swift in Sources */,
+				E79C4051281FC4FA00451FA9 /* Registration.swift in Sources */,
 				E7DB84C6281E90F600513F8C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
