@@ -32,6 +32,7 @@
 		E7DB84CF281E90FA00513F8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7DB84D1281E90FA00513F8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7E849352825623700912264 /* SelectRoomTypeTableViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRoomTypeTableViewControllerProtocol.swift; sourceTree = "<group>"; };
+		E7E8493728258A3D00912264 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 		E7DB84B7281E90F600513F8C = {
 			isa = PBXGroup;
 			children = (
+				E7E8493728258A3D00912264 /* README.md */,
 				E7DB84C2281E90F600513F8C /* Hotel Manzana */,
 				E7DB84C1281E90F600513F8C /* Products */,
 			);
