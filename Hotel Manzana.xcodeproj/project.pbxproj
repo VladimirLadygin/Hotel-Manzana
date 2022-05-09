@@ -16,6 +16,7 @@
 		E7DB84CB281E90F600513F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7DB84C9281E90F600513F8C /* Main.storyboard */; };
 		E7DB84CD281E90FA00513F8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7DB84CC281E90FA00513F8C /* Assets.xcassets */; };
 		E7DB84D0281E90FA00513F8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7DB84CE281E90FA00513F8C /* LaunchScreen.storyboard */; };
+		E7E044FA28281740001F1DA0 /* RegistrationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E044F928281740001F1DA0 /* RegistrationsTableViewController.swift */; };
 		E7E849362825623700912264 /* SelectRoomTypeTableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E849352825623700912264 /* SelectRoomTypeTableViewControllerProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		E7DB84CC281E90FA00513F8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7DB84CF281E90FA00513F8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7DB84D1281E90FA00513F8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7E044F928281740001F1DA0 /* RegistrationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationsTableViewController.swift; sourceTree = "<group>"; };
 		E7E849352825623700912264 /* SelectRoomTypeTableViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRoomTypeTableViewControllerProtocol.swift; sourceTree = "<group>"; };
 		E7E8493728258A3D00912264 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +53,7 @@
 			children = (
 				E79C4057281FD7B700451FA9 /* AddRegistrationTableViewController.swift */,
 				E7D79B1D282144C900834B60 /* SelectRoomTypeTableViewController.swift */,
+				E7E044F928281740001F1DA0 /* RegistrationsTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				E79C4058281FD7B700451FA9 /* AddRegistrationTableViewController.swift in Sources */,
 				E7DB84C4281E90F600513F8C /* AppDelegate.swift in Sources */,
 				E79C4051281FC4FA00451FA9 /* Registration.swift in Sources */,
+				E7E044FA28281740001F1DA0 /* RegistrationsTableViewController.swift in Sources */,
 				E7DB84C6281E90F600513F8C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
