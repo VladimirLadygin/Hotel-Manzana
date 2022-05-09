@@ -10,7 +10,7 @@
         <scene sceneID="xbq-r9-DZO">
             <objects>
                 <tableViewController id="6EG-f5-VOE" customClass="AddRegistrationTableViewController" customModule="Hotel_Manzana" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="QLe-tr-2Q4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" canCancelContentTouches="NO" keyboardDismissMode="onDrag" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="QLe-tr-2Q4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
@@ -358,6 +358,7 @@
                         <outlet property="emailTextField" destination="1dP-Yd-db9" id="ZHT-xb-9lo"/>
                         <outlet property="firstNameTextField" destination="Llo-iG-QvR" id="Xe2-87-6AK"/>
                         <outlet property="lastNameTextField" destination="zYO-O2-O0b" id="gxn-Yo-gRk"/>
+                        <outlet property="navigationTitle" destination="Nbc-8v-dg7" id="XC3-91-gA4"/>
                         <outlet property="numberOfAdulrsLabel" destination="xjU-LY-hxv" id="zux-Cu-afb"/>
                         <outlet property="numberOfAdultsStepper" destination="i1Y-3r-MxP" id="6sA-Dk-kF5"/>
                         <outlet property="numberOfChildrenLabel" destination="5dr-pc-le6" id="omd-cZ-3Rj"/>
@@ -446,7 +447,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="6EG-f5-VOE" kind="show" id="i32-BI-onS"/>
+                                    <segue destination="6EG-f5-VOE" kind="show" identifier="editRegistration" id="i32-BI-onS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

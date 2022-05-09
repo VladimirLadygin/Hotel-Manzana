@@ -9,11 +9,27 @@ import UIKit
 
 class RegistrationsTableViewController: UITableViewController {
     // MARK: properties
-    var registrations: [Registration]!
+    let dataModel = DataModel()
+    var registrations: [Registration]! {
+        didSet {
+            dataModel.saveRegistration(registrations)
+        }
+    }
     var roomType: RoomType?
     override func viewDidLoad() {
         super.viewDidLoad()
         registrations = Registration.all
+    }
+    // MARK: - NAVIGATION
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            segue.identifier == "editRegistration",
+            let selectedPath = tableView.indexPathForSelectedRow,
+            let description = segue.destination as? AddRegistrationTableViewController
+        else { return }
+        
+        let registration = registrations[selectedPath.row]
+        description.registration = registration
     }
 }
 

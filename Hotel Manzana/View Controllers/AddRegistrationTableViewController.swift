@@ -1,4 +1,4 @@
-//
+
 //  AddRegistrationTableViewController.swift
 //  Hotel Manzana
 //
@@ -22,6 +22,7 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBOutlet var numberOfChildrenStepper: UIStepper!
     @IBOutlet var wifiSwitch: UISwitch!
     @IBOutlet var roomTypeLabel: UILabel!
+    @IBOutlet var navigationTitle: UINavigationItem!
     
     
     
@@ -45,6 +46,7 @@ class AddRegistrationTableViewController: UITableViewController {
     }
     
     var roomType: RoomType?
+    var registration: Registration?
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -55,6 +57,7 @@ class AddRegistrationTableViewController: UITableViewController {
         updateDataViews()
         updateNumberOfGuests()
         updateRoomType()
+        editMode()
     }
     
     // MARK: - Navigation
@@ -66,6 +69,29 @@ class AddRegistrationTableViewController: UITableViewController {
     }
     
     // MARK: - UI Methods
+    func editMode () {
+        if let registration = registration {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.locale = Locale.current
+            
+            navigationTitle.title = "Edit registration"
+            firstNameTextField.text = registration.firstName
+            lastNameTextField.text = registration.lastName
+            emailTextField.text = registration.emailAdress
+            checkInDateLabel.text = dateFormatter.string(from: registration.checkInDate)
+            checkInDatePicker.minimumDate = registration.checkInDate
+            checkOutDateLabel.text = dateFormatter.string(from: registration.checkOutDate)
+            checkOutDatePicker.minimumDate = registration.checkInDate.addingTimeInterval(60 * 60 * 24)
+            numberOfAdultsStepper.value = Double(registration.numberOfAdults)
+            numberOfAdulrsLabel.text = String(registration.numberOfAdults)
+            numberOfChildrenStepper.value = Double(registration.numberOfChildren)
+            numberOfChildrenLabel.text = String(registration.numberOfChildren)
+            wifiSwitch.isOn = registration.wifi
+            roomTypeLabel.text = registration.roomType?.name
+        }
+    }
+    
     func updateDataViews() {
         checkOutDatePicker.minimumDate = checkInDatePicker.date.addingTimeInterval(60 * 60 * 24)
         
