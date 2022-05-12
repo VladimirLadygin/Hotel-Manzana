@@ -32,7 +32,7 @@ class AddRegistrationTableViewController: UITableViewController {
     let checkInDatePickerIndexPath = IndexPath(row: 1, section: 1)
     let checkOutDateLabelIndexPath = IndexPath(row: 2, section: 1)
     let checkOutDatePickerIndexPath = IndexPath(row: 3, section: 1)
-   
+    
     
     var isCheckInDatePickerShown: Bool = false {
         didSet {
@@ -62,11 +62,15 @@ class AddRegistrationTableViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "SelectRoomType" else { return }
-        let destination = segue.destination as! SelectRoomTypeTableViewController
-        destination.delegate = self
-        destination.roomType = roomType
+        if segue.identifier == "SelectRoomType" {
+            let destination = segue.destination as! SelectRoomTypeTableViewController
+            destination.delegate = self
+            destination.roomType = roomType
+        } else if segue.identifier == "saveSegue"{
+            saveRegistration()
+        }
     }
+    
     
     // MARK: - UI Methods
     func editMode () {
@@ -89,7 +93,32 @@ class AddRegistrationTableViewController: UITableViewController {
             numberOfChildrenLabel.text = String(registration.numberOfChildren)
             wifiSwitch.isOn = registration.wifi
             roomTypeLabel.text = registration.roomType?.name
+            roomType = registration.roomType
         }
+    }
+    func saveRegistration() {
+        
+        let firstName = firstNameTextField.text ?? ""
+        let lastName = lastNameTextField.text ?? ""
+        let email = emailTextField.text ?? ""
+        let checkInDate = checkInDatePicker.date
+        let checkOutDate = checkOutDatePicker.date
+        let numberOfAdults = Int(numberOfAdultsStepper.value)
+        let numberOfChildren = Int(numberOfChildrenStepper.value)
+        let wifi = wifiSwitch.isOn
+        
+        registration = Registration(
+            firstName: firstName,
+            lastName: lastName,
+            emailAdress: email,
+            checkInDate: checkInDate,
+            checkOutDate: checkOutDate,
+            numberOfAdults: numberOfAdults,
+            numberOfChildren: numberOfChildren,
+            roomType: roomType,
+            wifi: wifi
+        )
+        print(#line, #function, registration)
     }
     
     func updateDataViews() {
@@ -126,27 +155,6 @@ class AddRegistrationTableViewController: UITableViewController {
     
     
     @IBAction func doneBarButtonTapped (_ sender: UIBarButtonItem) {
-        let firstName = firstNameTextField.text ?? ""
-        let lastName = lastNameTextField.text ?? ""
-        let email = emailTextField.text ?? ""
-        let checkInDate = checkInDatePicker.date
-        let checkOutDate = checkOutDatePicker.date
-        let numberOfAdults = Int(numberOfAdultsStepper.value)
-        let numberOfChildren = Int(numberOfChildrenStepper.value)
-        let wifi = wifiSwitch.isOn
-        
-        let registration = Registration(
-            firstName: firstName,
-            lastName: lastName,
-            emailAdress: email,
-            checkInDate: checkInDate,
-            checkOutDate: checkOutDate,
-            numberOfAdults: numberOfAdults,
-            numberOfChildren: numberOfChildren,
-            roomType: roomType,
-            wifi: wifi
-        )
-        print(#line, #function, registration)
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {

@@ -20,8 +20,9 @@ class DataModel: Codable {
         
         guard let encodedRegistration = try? Data(contentsOf: archiveURL) else { return nil }
         
-        let decoder = PropertyListDecoder()
+        let decoder = JSONDecoder()
         return try? decoder.decode([Registration].self, from: encodedRegistration)
+        print("dates are load")
     }
     
     func saveRegistration(_ registrations: [Registration]) {
@@ -32,6 +33,7 @@ class DataModel: Codable {
         guard let encodedRegistration = try? encoder.encode(registrations) else { return }
         
         try? encodedRegistration.write(to: archiveURL, options: .noFileProtection)
-
+print("saveDone")
+        dump(registrations)
     }
 }

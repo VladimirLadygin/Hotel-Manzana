@@ -18,7 +18,8 @@ class RegistrationsTableViewController: UITableViewController {
     var roomType: RoomType?
     override func viewDidLoad() {
         super.viewDidLoad()
-        registrations = Registration.all
+        registrations = dataModel.loadRegisration() ?? Registration.all
+        
     }
     // MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,11 +71,31 @@ extension RegistrationsTableViewController/*: UITableViewDataSource */ {
             detailString.append(NSAttributedString(attachment: wifiSFImage))
         }
         
-        
-        
+        // Send date to cell labels
         cell.textLabel?.text = "\(roomNumber) - \(firstName) \(lastName)"
         cell.detailTextLabel?.attributedText = detailString
         return cell
     }
 }
 
+extension RegistrationsTableViewController {
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+
+        guard segue.identifier == "saveSegue" else { return }
+
+        let source = segue.source as! AddRegistrationTableViewController
+        let registration = source.registration!
+        dump(registration)
+
+        if let selectedPath = tableView.indexPathForSelectedRow {
+            // Edited cell
+            registrations[selectedPath.row] = registration
+            tableView.reloadRows(at: [selectedPath], with: .automatic)
+        } else {
+            // Added cell
+            let indexPath = IndexPath(row: registrations.count, section: 0)
+            registrations.append(registration)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
