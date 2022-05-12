@@ -273,23 +273,23 @@
                             <tableViewSection headerTitle="Room" id="fvw-mE-F9g">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="LGF-Ni-aqI">
-                                        <rect key="frame" x="20" y="627.5" width="374" height="43"/>
+                                        <rect key="frame" x="20" y="627.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LGF-Ni-aqI" id="GUV-BV-lhz">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wi-Fi (per Day)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU5-cf-KSs">
-                                                    <rect key="frame" x="20" y="11" width="116" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="116" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zg7-2b-fbl">
-                                                    <rect key="frame" x="305" y="6" width="51" height="31"/>
+                                                    <rect key="frame" x="305" y="6.5" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1W9-3D-JQn">
-                                                    <rect key="frame" x="268" y="11" width="29" height="21"/>
+                                                    <rect key="frame" x="268" y="11" width="29" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -309,7 +309,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="W7R-3v-Ofv" detailTextLabel="a6V-ZL-SHT" style="IBUITableViewCellStyleValue1" id="h0h-GK-QzU">
-                                        <rect key="frame" x="20" y="670.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="671" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h0h-GK-QzU" id="7ae-rs-vVN">
                                             <rect key="frame" x="0.0" y="0.0" width="345.5" height="43.5"/>
@@ -457,7 +457,13 @@
                             <outlet property="delegate" destination="1dZ-SV-jnl" id="eqk-nb-5jV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Registered guests" id="7IF-KV-xtg"/>
+                    <navigationItem key="navigationItem" title="Registered guests" id="7IF-KV-xtg">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="UgC-uQ-Gbx">
+                            <connections>
+                                <segue destination="6EG-f5-VOE" kind="show" id="QzJ-3M-OGf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQf-KU-Ncd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -482,4 +488,7 @@
             <point key="canvasLocation" x="-75.362318840579718" y="28.794642857142854"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QzJ-3M-OGf"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -22,7 +22,6 @@ class DataModel: Codable {
         
         let decoder = JSONDecoder()
         return try? decoder.decode([Registration].self, from: encodedRegistration)
-        print("dates are load")
     }
     
     func saveRegistration(_ registrations: [Registration]) {
