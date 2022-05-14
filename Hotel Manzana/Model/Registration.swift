@@ -23,31 +23,98 @@ struct Registration: Codable {
 
 extension Registration {
     static var all: [Registration] {
-        let dataformatter = DateFormatter()
-        dataformatter.dateFormat = "yyyy/MM/dd HH:mm"
-        
+        let today = Calendar.current.startOfDay(for: Date())
+        let tomorrow = today.addingTimeInterval(60 * 60 * 24)
         return [
             Registration(
-                firstName: "Vladimir",
-                lastName: "Ladygin",
-                emailAdress: "ladygin@lenvoku.ru",
-                checkInDate: dataformatter.date(from: "2022/06/07 14:30")!,
-                checkOutDate: dataformatter.date(from: "2022/07/03 12:00")!,
+                firstName: "Arseniy",
+                lastName: "Petrov",
+                emailAdress: "petrovbars@ya.com",
+                checkInDate: today,
+                checkOutDate: tomorrow,
+                numberOfAdults: 1,
+                numberOfChildren: 0,
+                roomType: RoomType(
+                    id: 104,
+                    name: "One Queen",
+                    shortName: "1Q",
+                    price: 129
+                ),
+                wifi: true
+            ),
+            Registration(
+                firstName: "Valentine ",
+                lastName: "Petukhov",
+                emailAdress: "ads@wilsa.com",
+                checkInDate: today,
+                checkOutDate: tomorrow,
                 numberOfAdults: 2,
                 numberOfChildren: 2,
-                roomType: RoomType(id: 0, name: "Two Qeeens", shortName: "2Q", price: 250),
+                roomType: RoomType(
+                    id: 203,
+                    name: "Two Queens",
+                    shortName: "2Q",
+                    price: 179),
+                wifi: true
+            ),
+            Registration(
+                firstName: "Jhon",
+                lastName: "Appleseed",
+                emailAdress: "jhon@appleseed.com",
+                checkInDate: today,
+                checkOutDate: tomorrow,
+                numberOfAdults: 1,
+                numberOfChildren: 0,
+                roomType: RoomType(
+                    id: 204,
+                    name: "Two Queens",
+                    shortName: "2Q",
+                    price: 179),
+                wifi: true
+            ),
+            Registration(
+                firstName: "Vuasya",
+                lastName: "Pumpkin",
+                emailAdress: "vyasya@pumpkon.ru",
+                checkInDate: today,
+                checkOutDate: tomorrow,
+                numberOfAdults: 2,
+                numberOfChildren: 2,
+                roomType: RoomType(
+                    id: 205,
+                    name: "Two Queens",
+                    shortName: "2Q",
+                    price: 179),
                 wifi: false
             ),
             Registration(
-                firstName: "Semen",
-                lastName: "Mogilevsky",
-                emailAdress: "mogila@mail.ru",
-                checkInDate: dataformatter.date(from: "2022/06/05 14:30")!,
-                checkOutDate: dataformatter.date(from: "2022/06/18 12:00")!,
+                firstName: "Takuya",
+                lastName: "Matsuyama",
+                emailAdress: "info@inkdrop.app",
+                checkInDate: today,
+                checkOutDate: tomorrow,
                 numberOfAdults: 1,
                 numberOfChildren: 0,
-                roomType: RoomType(id: 2, name: "One Prince", shortName: "1P", price: 150),
-                wifi: true
+                roomType: RoomType(
+                    id: 306,
+                    name: "One King",
+                    shortName: "K", price: 209
+                ),
+                wifi: true),
+            Registration(
+                firstName: "Pasha",
+                lastName: "Durov ",
+                emailAdress: "durov@telegram.com",
+                checkInDate: today,
+                checkOutDate: tomorrow,
+                numberOfAdults: 1,
+                numberOfChildren: 0,
+                roomType: RoomType(
+                    id: 402,
+                    name: "Penthouse Suite",
+                    shortName: "PHS",
+                    price: 309),
+                wifi: false
             )
         ]
     }

@@ -31,6 +31,7 @@ class RegistrationsTableViewController: UITableViewController {
     
     func sortByFloor() {
         registrFloorToDisplay = Array(Dictionary(grouping: registrations) { $0.roomType!.floor }.values)
+            .sorted(by: {$0.first!.roomType!.floor < $1.first!.roomType!.floor})
     }
     
     // MARK: - NAVIGATION

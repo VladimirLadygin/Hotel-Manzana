@@ -8,6 +8,7 @@
 import UIKit
 
 class AddRegistrationTableViewController: UITableViewController {
+    
     // MARK: - Outlets
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
@@ -47,11 +48,11 @@ class AddRegistrationTableViewController: UITableViewController {
     
     var roomType: RoomType?
     var registration: Registration?
+    private let midnightToday = Calendar.current.startOfDay(for: Date())
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        let midnightToday = Calendar.current.startOfDay(for: Date())
         checkInDatePicker.minimumDate = midnightToday
         checkOutDatePicker.date = midnightToday
         updateDataViews()
@@ -85,7 +86,7 @@ class AddRegistrationTableViewController: UITableViewController {
             lastNameTextField.text = registration.lastName
             emailTextField.text = registration.emailAdress
             checkInDateLabel.text = dateFormatter.string(from: registration.checkInDate)
-            checkInDatePicker.minimumDate = registration.checkInDate
+            checkInDatePicker.minimumDate = registration.checkInDate < midnightToday ? registration.checkInDate : midnightToday
             checkOutDateLabel.text = dateFormatter.string(from: registration.checkOutDate)
             checkOutDatePicker.minimumDate = registration.checkInDate.addingTimeInterval(60 * 60 * 24)
             numberOfAdultsStepper.value = Double(registration.numberOfAdults)
@@ -121,7 +122,6 @@ class AddRegistrationTableViewController: UITableViewController {
             roomType: roomType,
             wifi: wifi
         )
-        print(#line, #function, registration)
     }
     
     // Updating the date display in the checkout and checkout labels
