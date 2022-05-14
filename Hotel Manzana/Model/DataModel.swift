@@ -8,6 +8,8 @@
 import Foundation
 
 class DataModel: Codable {
+    
+    // MARK: - Properities
     var archiveURL: URL? {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first  else {
             return nil
@@ -15,6 +17,8 @@ class DataModel: Codable {
         return documentDirectory.appendingPathComponent("registrations").appendingPathExtension("json")
     }
     
+    // MARK: Methods
+    // JSON file data loader
     func loadRegisration() -> [Registration]? {
         guard let archiveURL = archiveURL else { return nil }
         
@@ -24,6 +28,7 @@ class DataModel: Codable {
         return try? decoder.decode([Registration].self, from: encodedRegistration)
     }
     
+    // Save data to JSON file
     func saveRegistration(_ registrations: [Registration]) {
         guard let archiveURL = archiveURL else { return }
         print(archiveURL)
@@ -32,7 +37,7 @@ class DataModel: Codable {
         guard let encodedRegistration = try? encoder.encode(registrations) else { return }
         
         try? encodedRegistration.write(to: archiveURL, options: .noFileProtection)
-print("saveDone")
+        print("saveDone")
         dump(registrations)
     }
 }

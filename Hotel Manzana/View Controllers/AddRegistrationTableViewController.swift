@@ -73,6 +73,7 @@ class AddRegistrationTableViewController: UITableViewController {
     
     
     // MARK: - UI Methods
+    // Loading data into fields when editing data
     func editMode () {
         if let registration = registration {
             let dateFormatter = DateFormatter()
@@ -92,10 +93,12 @@ class AddRegistrationTableViewController: UITableViewController {
             numberOfChildrenStepper.value = Double(registration.numberOfChildren)
             numberOfChildrenLabel.text = String(registration.numberOfChildren)
             wifiSwitch.isOn = registration.wifi
-            roomTypeLabel.text = registration.roomType?.name
+            roomTypeLabel.text = "\(registration.roomType!.id) - \(registration.roomType!.name)"
             roomType = registration.roomType
         }
     }
+    
+    // Wtiting data from an input form into a variable to send to the database
     func saveRegistration() {
         
         let firstName = firstNameTextField.text ?? ""
@@ -121,6 +124,7 @@ class AddRegistrationTableViewController: UITableViewController {
         print(#line, #function, registration)
     }
     
+    // Updating the date display in the checkout and checkout labels
     func updateDataViews() {
         checkOutDatePicker.minimumDate = checkInDatePicker.date.addingTimeInterval(60 * 60 * 24)
         
@@ -132,6 +136,7 @@ class AddRegistrationTableViewController: UITableViewController {
         checkOutDateLabel.text = dateFormatter.string(from: checkOutDatePicker.date)
     }
     
+    // Updating the data of a guest data in adult and child labels
     func updateNumberOfGuests() {
         let numberOfAdults = Int(numberOfAdultsStepper.value)
         let numberOfChildren = Int(numberOfChildrenStepper.value)
@@ -139,9 +144,11 @@ class AddRegistrationTableViewController: UITableViewController {
         numberOfChildrenLabel.text = "\(numberOfChildren)"
     }
     
+    // Updating the room information to be displayed on the label
     func updateRoomType()  {
         if let roomType = roomType {
-            roomTypeLabel.text = roomType.name
+            roomTypeLabel.text = "\(roomType.id) - \(roomType.name)"
+            
         } else {
             roomTypeLabel.text = "Not Set"
         }

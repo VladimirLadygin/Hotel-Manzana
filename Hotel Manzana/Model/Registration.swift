@@ -20,10 +20,12 @@ struct Registration: Codable {
     var roomType: RoomType?
     var wifi: Bool
 }
+
 extension Registration {
     static var all: [Registration] {
         let dataformatter = DateFormatter()
         dataformatter.dateFormat = "yyyy/MM/dd HH:mm"
+        
         return [
             Registration(
                 firstName: "Vladimir",

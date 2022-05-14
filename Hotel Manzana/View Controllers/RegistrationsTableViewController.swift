@@ -9,18 +9,30 @@ import UIKit
 
 class RegistrationsTableViewController: UITableViewController {
     // MARK: properties
-    let dataModel = DataModel()
-    var registrations: [Registration]! {
+    private let dataModel = DataModel()
+    private var registrations: [Registration]! {
         didSet {
+            // Sort registrations by room id
+            registrations = registrations
+                .sorted(by: { $0.roomType!.id < $1.roomType!.id})
+            // Save registration in DataStorage
             dataModel.saveRegistration(registrations)
+            // Grouping registrations by floor to display on the user interface
+            sortByFloor()
         }
     }
-    var roomType: RoomType?
+    
+    private var registrFloorToDisplay: [[Registration]] = []
+    private var roomType: RoomType?
     override func viewDidLoad() {
         super.viewDidLoad()
         registrations = dataModel.loadRegisration() ?? Registration.all
-        
     }
+    
+    func sortByFloor() {
+        registrFloorToDisplay = Array(Dictionary(grouping: registrations) { $0.roomType!.floor }.values)
+    }
+    
     // MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
@@ -29,19 +41,27 @@ class RegistrationsTableViewController: UITableViewController {
             let description = segue.destination as? AddRegistrationTableViewController
         else { return }
         
-        let registration = registrations[selectedPath.row]
+        let registration = registrFloorToDisplay[selectedPath.section][selectedPath.row]
         description.registration = registration
     }
 }
 
 extension RegistrationsTableViewController/*: UITableViewDataSource */ {
+    
+    // Definition of the maximum number of floors to be grouped by floor by section
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return registrFloorToDisplay.count
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return registrations.count
+        return registrFloorToDisplay[section].count
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Floor \(registrFloorToDisplay[section].first!.roomType!.floor)"
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RegistrationCell", for: indexPath)
-        let registrationCell = registrations[indexPath.row]
+        let registrationCell = registrFloorToDisplay[indexPath.section][indexPath.row]
         
         // Declaring service variables
         let firstName = registrationCell.firstName
@@ -78,7 +98,30 @@ extension RegistrationsTableViewController/*: UITableViewDataSource */ {
     }
 }
 
-extension RegistrationsTableViewController {
+extension RegistrationsTableViewController /*: UITableViewDataSource*/ {
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+            
+        case .delete:
+            registrations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        case .insert:
+            break
+        case .none:
+            break
+        @unknown default:
+            break
+        }
+    }
+}
+
+
+extension RegistrationsTableViewController /*: UITableViewDataSource */ {
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
 
         guard segue.identifier == "saveSegue" else { return }
@@ -87,15 +130,30 @@ extension RegistrationsTableViewController {
         let registration = source.registration!
         dump(registration)
 
+//        if let selectedPath = tableView.indexPathForSelectedRow {
+//            // Edited cell
+//            registrations[selectedPath.row] = registration
+//            tableView.reloadRows(at: [selectedPath], with: .automatic)
+//        } else {
+//            // Added cell
+//            let indexPath = IndexPath(row: registrations.count, section: 0)
+//            registrations.append(registration)
+//            tableView.insertRows(at: [indexPath], with: .automatic)
+//        }
+        // TODO: - Modify the function for a less resource - intensive insertion of cells. See code above.
         if let selectedPath = tableView.indexPathForSelectedRow {
             // Edited cell
-            registrations[selectedPath.row] = registration
-            tableView.reloadRows(at: [selectedPath], with: .automatic)
+            registrFloorToDisplay[selectedPath.section][selectedPath.row] = registration
+            registrations = Array(registrFloorToDisplay.joined())
         } else {
             // Added cell
-            let indexPath = IndexPath(row: registrations.count, section: 0)
             registrations.append(registration)
-            tableView.insertRows(at: [indexPath], with: .automatic)
         }
+        
+        tableView.reloadData()
     }
+        
+        
 }
+
+
