@@ -16,4 +16,3 @@ Added functions:
 |![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/1.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/2.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/3.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/4.PNG)|
 |----|----|----|----|
 |![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/5.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/6.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/7.PNG)||
-|----|----|----|----|
