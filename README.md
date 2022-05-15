@@ -12,3 +12,8 @@ Added functions:
 - when editing a room, the occupied room is displayed.
 - added function to delete a record from the database
 - function to save the database on the device with the possibility of further modification for uploading and downloading data via RestAPI (JSON) was added
+
+|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/1.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/2.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/3.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/4.PNG)|
+|----|----|----|----|
+|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/5.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/6.PNG)|![Screen](https://github.com/VladimirLadygin/Hotel-Manzana/blob/main/Hotel%20Manzana/Screens/7.PNG)||
+|----|----|----|----|
