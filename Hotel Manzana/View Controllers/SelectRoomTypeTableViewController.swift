@@ -35,11 +35,11 @@ class SelectRoomTypeTableViewController: UITableViewController {
         if let roomType = roomType {
             emptyRooms.append(roomType)
             emptyRooms = emptyRooms.sorted(by: { $0.id < $1.id })
-            
+        }
             // Creating list of rooms which available today with sorted by floor
             emptyRoomsbyFloor = Array(Dictionary(grouping: emptyRooms) { $0.floor}.values)
                 .sorted(by: { $0.first!.floor < $1.first!.floor})
-        }
+        
     }
 }
 

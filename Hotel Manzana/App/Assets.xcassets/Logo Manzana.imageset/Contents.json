@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "Logo Manzana.jpg",
       "idiom" : "universal"
     }
   ],
