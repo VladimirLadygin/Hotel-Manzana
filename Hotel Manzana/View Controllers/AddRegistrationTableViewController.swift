@@ -10,6 +10,7 @@ import UIKit
 class AddRegistrationTableViewController: UITableViewController {
     
     // MARK: - Outlets
+    @IBOutlet var saveButton: UIBarButtonItem!
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
@@ -59,6 +60,7 @@ class AddRegistrationTableViewController: UITableViewController {
         updateNumberOfGuests()
         updateRoomType()
         editMode()
+        saveButton.isEnabled = false
     }
     
     // MARK: - Navigation
@@ -98,6 +100,21 @@ class AddRegistrationTableViewController: UITableViewController {
             roomType = registration.roomType
         }
     }
+    // Validates forms and activate save button
+    private func formValidation() {
+        guard
+            let firstName = firstNameTextField.text, !firstName.isEmpty,
+            let lastName = lastNameTextField.text, !lastName.isEmpty,
+            let email = emailTextField.text, !email.isEmpty,
+            let roomType = roomType?.name, !roomType.isEmpty
+        else {
+            saveButton.isEnabled = false
+            return
+        }
+        
+        saveButton.isEnabled = true
+    }
+    
     
     // Wtiting data from an input form into a variable to send to the database
     func saveRegistration() {
@@ -160,12 +177,12 @@ class AddRegistrationTableViewController: UITableViewController {
         updateDataViews()
     }
     
-    
-    @IBAction func doneBarButtonTapped (_ sender: UIBarButtonItem) {
-    }
-    
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         updateNumberOfGuests()
+    }
+    
+    @IBAction func textFieldActive (_ sender: UITextField) {
+        formValidation()
     }
 }
 
@@ -207,6 +224,7 @@ extension AddRegistrationTableViewController: SelectRoomTypeTableViewControllerP
     func didSelect(roomType: RoomType) {
         self.roomType = roomType
         updateRoomType()
+        formValidation()
     }
 }
 

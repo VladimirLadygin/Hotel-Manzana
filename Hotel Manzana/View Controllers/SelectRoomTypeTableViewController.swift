@@ -11,7 +11,7 @@ class SelectRoomTypeTableViewController: UITableViewController {
     
     // MARK: - Properities
     private let dataModel = DataModel()
-    var delegate: SelectRoomTypeTableViewControllerProtocol?
+    weak var delegate: SelectRoomTypeTableViewControllerProtocol?
     var roomType: RoomType?
     var currentRoomType: RoomType?
     private var emptyRoomsbyFloor: [[RoomType]] = []

@@ -24,6 +24,8 @@ class RegistrationsTableViewController: UITableViewController {
     
     private var registrFloorToDisplay: [[Registration]] = []
     private var roomType: RoomType?
+    
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         registrations = dataModel.loadRegisration() ?? Registration.all
@@ -51,9 +53,11 @@ extension RegistrationsTableViewController/*: UITableViewDataSource */ {
     
     // Definition of the maximum number of floors to be grouped by floor by section
     override func numberOfSections(in tableView: UITableView) -> Int {
+        print(#line, #function, registrFloorToDisplay.count)
         return registrFloorToDisplay.count
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(#line, #function, registrFloorToDisplay[section].count)
         return registrFloorToDisplay[section].count
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -108,7 +112,10 @@ extension RegistrationsTableViewController /*: UITableViewDataSource*/ {
         switch editingStyle {
             
         case .delete:
-            registrations.remove(at: indexPath.row)
+            registrFloorToDisplay[indexPath.section].remove(at: indexPath.row)
+            print(registrFloorToDisplay)
+            registrations = Array(registrFloorToDisplay.joined())
+            dump(registrations)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         case .insert:
@@ -141,6 +148,7 @@ extension RegistrationsTableViewController /*: UITableViewDataSource */ {
 //            registrations.append(registration)
 //            tableView.insertRows(at: [indexPath], with: .automatic)
 //        }
+
         // TODO: - Modify the function for a less resource - intensive insertion of cells. See code above.
         if let selectedPath = tableView.indexPathForSelectedRow {
             // Edited cell

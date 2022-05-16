@@ -27,6 +27,9 @@
                                                     <rect key="frame" x="20" y="11" width="334" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldActive:" destination="6EG-f5-VOE" eventType="editingDidEnd" id="ozH-hx-AIx"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -48,6 +51,9 @@
                                                     <rect key="frame" x="20" y="11" width="334" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldActive:" destination="6EG-f5-VOE" eventType="editingDidEnd" id="9iv-Yf-EyJ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -69,6 +75,9 @@
                                                     <rect key="frame" x="20" y="11" width="334" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldActive:" destination="6EG-f5-VOE" eventType="editingDidEnd" id="1vS-uM-zrg"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -273,23 +282,23 @@
                             <tableViewSection headerTitle="Room" id="fvw-mE-F9g">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="LGF-Ni-aqI">
-                                        <rect key="frame" x="20" y="627.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="627.5" width="374" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LGF-Ni-aqI" id="GUV-BV-lhz">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wi-Fi (per Day)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU5-cf-KSs">
-                                                    <rect key="frame" x="20" y="11" width="116" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="116" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zg7-2b-fbl">
-                                                    <rect key="frame" x="305" y="6.5" width="51" height="31"/>
+                                                    <rect key="frame" x="305" y="6" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1W9-3D-JQn">
-                                                    <rect key="frame" x="268" y="11" width="29" height="21.5"/>
+                                                    <rect key="frame" x="268" y="11" width="29" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -309,7 +318,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="W7R-3v-Ofv" detailTextLabel="a6V-ZL-SHT" style="IBUITableViewCellStyleValue1" id="h0h-GK-QzU">
-                                        <rect key="frame" x="20" y="671" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="670.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h0h-GK-QzU" id="7ae-rs-vVN">
                                             <rect key="frame" x="0.0" y="0.0" width="345.5" height="43.5"/>
@@ -364,6 +373,7 @@
                         <outlet property="numberOfChildrenLabel" destination="5dr-pc-le6" id="omd-cZ-3Rj"/>
                         <outlet property="numberOfChildrenStepper" destination="i7z-1j-9gw" id="OHI-lV-tKb"/>
                         <outlet property="roomTypeLabel" destination="a6V-ZL-SHT" id="tdK-wI-j2d"/>
+                        <outlet property="saveButton" destination="kUW-wq-wIH" id="c2R-6g-5wp"/>
                         <outlet property="wifiSwitch" destination="zg7-2b-fbl" id="FF2-1M-aBs"/>
                     </connections>
                 </tableViewController>
